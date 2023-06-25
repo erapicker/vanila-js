@@ -1,0 +1,25 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint", "solid"],
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"@fullstacksjs/eslint-config/base",
+		"@fullstacksjs/eslint-config/fp",
+		"@fullstacksjs/eslint-config/typescript",
+		"plugin:solid/recommended"
+	],
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		"no-console": "warn",
+		"fp/no-delete": "error",
+		"fp/no-get-set": "error",
+		"fp/no-mutating-methods": "error",
+		"max-params": ["warn", 5],
+		"prefer-object-spread": "off",
+		"func-names": ["error", "as-needed"],
+		"@typescript-eslint/naming-convention": "off"
+	}
+}

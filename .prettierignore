@@ -1,0 +1,6 @@
+# Ignore all files:
+*.html
+*.ejs
+*.mdx
+*.md
+
