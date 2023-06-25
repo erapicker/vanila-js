@@ -1,0 +1,24 @@
+.arrows {
+	:global {
+		.btn-arrows {
+			position: absolute;
+			z-index: 2;
+			top: 13px;
+
+			&.disabled {
+				pointer-events: none;
+				opacity: 0.4;
+			}
+		}
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+	} // :global
+} // .arrows
+
+.hiddenArrows {
+	display: none !important;
+	pointer-events: none !important;
+}

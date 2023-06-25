@@ -1,0 +1,104 @@
+@import '~lib/styles/_variables.scss';
+@import '~lib/styles/_mixins.scss';
+
+.daysPicker {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	flex: 1 0 100%;
+	flex-wrap: wrap;
+	gap: 10px;
+
+	& > div {
+		min-width: 300px;
+		flex: 1 1 100%;
+	}
+
+	:global {
+		.weekday-item,
+		.day-item {
+			border: 2px solid transparent;
+		}
+	}
+} // .daysPicker
+
+.body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+
+	:global {
+		.day-item {
+			@include buttonItem();
+
+			border-radius: $radius;
+			background-color: #fff;
+
+			&:not(.offset-item, .selected, .in-range, .disabled) {
+				&:hover {
+					border-color: $selected-bg;
+				}
+			}
+
+			&::before {
+				padding-top: 100%;
+			}
+		}
+
+		.disabled,
+		.offset-item {
+			opacity: 0.4;
+		}
+
+		.weekend-item,
+		.holiday-item {
+			color: $weekend-color;
+		}
+
+		.today-item {
+			&:not(.offset-item, .selected, .in-range) {
+				background-color: $today-bg;
+				color: $today-color;
+				font-weight: bold;
+			}
+		}
+
+		.selected {
+			&:not(:empty) {
+				background-color: $selected-bg;
+			}
+		}
+
+		.in-range {
+			&:not(:empty) {
+				background-color: $inRange-bg;
+			}
+		}
+	} // :global
+} // .body
+
+.header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 4px;
+
+	:global {
+		.weekdays-wrapper {
+			position: relative;
+			display: flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			width: 100%;
+			padding-top: 4px;
+		} // .weekdays-wrapper
+
+		.weekday-item {
+			@include buttonItem();
+		}
+	} // :global
+} // .header

@@ -20,6 +20,7 @@
 		"max-params": ["warn", 5],
 		"prefer-object-spread": "off",
 		"func-names": ["error", "as-needed"],
-		"@typescript-eslint/naming-convention": "off"
+		"@typescript-eslint/naming-convention": "off",
+		"@typescript-eslint/object-curly-spacing": "off"
 	}
 }

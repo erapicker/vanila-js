@@ -1,12 +1,14 @@
-import { resolve } from 'path';
+import path from 'path';
 import typescript2 from 'rollup-plugin-typescript2';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import solidPlugin from 'vite-plugin-solid';
 
 import pkg from './package.json';
 
 export default defineConfig({
 	plugins: [
+		solidPlugin(),
 		dts({
 			insertTypesEntry: true,
 		}),
@@ -27,7 +29,7 @@ export default defineConfig({
 	build: {
 		target: 'ES2020',
 		lib: {
-			entry: resolve(__dirname, 'src/lib/index.ts'),
+			entry: path.resolve(__dirname, 'src/lib/index.tsx'),
 			name: pkg.globalName,
 			fileName: (format) => `${pkg.globalName}.${format}.js`,
 			formats: ['es', 'umd', 'iife'],
@@ -45,7 +47,7 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'~lib': resolve(__dirname, 'src', 'lib'),
+			'~lib': path.resolve(__dirname, 'src', 'lib'),
 		},
 	},
 });

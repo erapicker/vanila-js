@@ -1,0 +1,84 @@
+@import '~lib/styles/_variables.scss';
+@import '~lib/styles/_mixins.scss';
+
+.innerCalendar {
+	$padding: 10px;
+
+	min-width: $calendarMinWidth + ($padding * 2);
+	margin-top: 8px;
+	padding: $padding;
+	box-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.7);
+	position: relative;
+	border-radius: $radius;
+	user-select: none;
+	background-color: #fff;
+	box-sizing: border-box;
+	color: $color;
+
+	:global {
+		*,
+		*::after,
+		*::before {
+			box-sizing: border-box;
+		}
+
+		svg {
+			font-size: inherit;
+			object-fit: contain;
+			display: inline-block;
+			fill: currentColor;
+			vertical-align: middle;
+		}
+
+		.day-item,
+		.weekday-item,
+		.month-item,
+		.year-item,
+		button {
+			@include resetCssButton();
+		}
+
+		.btn-arrows,
+		.btn-title {
+			@include title();
+		}
+
+		.btn-title {
+			padding-left: 1rem;
+			padding-right: 1rem;
+			gap: 5px;
+		}
+	} // :global
+}
+
+.persianCalendar {
+	direction: rtl;
+
+	:global {
+		.btn-next {
+			left: 10px;
+			justify-content: end;
+		}
+
+		.btn-prev {
+			right: 10px;
+			justify-content: start;
+		}
+	} //:global
+} // .persianCalendar
+
+.gregorianCalendar {
+	direction: ltr;
+
+	:global {
+		.btn-next {
+			right: 10px;
+			justify-content: end;
+		}
+
+		.btn-prev {
+			left: 10px;
+			justify-content: start;
+		}
+	} //:global
+} // .gregorianCalendar

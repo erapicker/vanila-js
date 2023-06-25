@@ -1,0 +1,54 @@
+@import '~lib/styles/_variables.scss';
+@import '~lib/styles/_mixins.scss';
+
+.header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 4px;
+	padding-bottom: 7px;
+} // .header
+
+.body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+
+	:global {
+		.month-item {
+			@include buttonItem();
+
+			border-radius: $radius;
+			width: calc((100% / 3) - ($monthNamesMargin * 4));
+			flex-basis: calc((100% / 3) - ($monthNamesMargin * 4));
+			background-color: #fff;
+			transition: all 0.15s ease-in-out;
+			height: 55px;
+			margin: $monthNamesMargin;
+
+			&:hover {
+				background-color: $hover-bg;
+			}
+
+			&:nth-child(3n + 1) {
+				margin-right: 0;
+			}
+
+			&:nth-child(3n + 3) {
+				margin-left: 0;
+			}
+
+			&::before {
+				content: none;
+				display: none;
+			}
+
+			&.current-month {
+				color: $today-bg;
+			}
+		} // .month-item
+	} // :global
+} // .body

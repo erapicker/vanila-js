@@ -1,0 +1,16 @@
+/* Defining the dimensions. */
+$calendarMinWidth: 300px;
+$titleWrapperHeight: 52px;
+$monthNamesMargin: 5px;
+$radius: 5px;
+
+/* Defining the color of the text. */
+$color: #3d3d3d;
+$today-color: #fff;
+$weekend-color: #df152d;
+
+/* Defining the background color. */
+$today-bg: #0a6ada;
+$hover-bg: #f0f0f0;
+$selected-bg: #ffb500;
+$inRange-bg: lighten($selected-bg, 30%);
