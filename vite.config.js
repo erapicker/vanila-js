@@ -32,7 +32,7 @@ export default defineConfig({
 			entry: path.resolve(__dirname, 'src/lib/index.tsx'),
 			name: pkg.globalName,
 			fileName: (format) => `${pkg.globalName}.${format}.js`,
-			formats: ['es', 'umd', 'iife'],
+			formats: ['umd', 'iife'],
 		},
 		rollupOptions: {
 			output: {
