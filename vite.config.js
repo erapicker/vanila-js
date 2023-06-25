@@ -12,24 +12,24 @@ export default defineConfig({
 		dts({
 			insertTypesEntry: true,
 		}),
-		typescript2({
-			check: false,
-			include: ['src/lib/**/*.ts', 'src/lib/**/*.tsx'],
-			tsconfigOverride: {
-				compilerOptions: {
-					outDir: 'dist',
-					sourceMap: true,
-					declaration: true,
-					declarationMap: true,
-				},
-			},
-			exclude: ['vite.config.ts'],
-		}),
+		// typescript2({
+		// 	check: false,
+		// 	include: ['src/lib/**/*.ts', 'src/lib/**/*.tsx'],
+		// 	tsconfigOverride: {
+		// 		compilerOptions: {
+		// 			outDir: 'dist',
+		// 			sourceMap: true,
+		// 			declaration: true,
+		// 			declarationMap: true,
+		// 		},
+		// 	},
+		// 	exclude: ['vite.config.ts'],
+		// }),
 	],
 	build: {
 		target: 'ES2020',
 		lib: {
-			entry: path.resolve(__dirname, 'src/lib/index.tsx'),
+			entry: path.resolve(__dirname, 'src/lib/index.ts'),
 			name: pkg.globalName,
 			fileName: (format) => `${pkg.globalName}.${format}.js`,
 			formats: ['umd', 'iife'],
